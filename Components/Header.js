@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
         width:'100%',
         alignItems:'center',
         justifyContent:'space-between',
-        position:"relative"
+        position:"relative",
+        backgroundColor:'white'
     },
     logo:{
         resizeMode:"contain",
