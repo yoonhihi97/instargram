@@ -4,19 +4,21 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Card, CardItem, Thumbnail, Body, Left, Right, Button, Icon } from 'native-base';
 
 import ruffy from '../images/ruffy.jpg';
+import ImageButton from './ImageButton';
 
-const Feeds  = () =>{
+const Feeds  = ({id,like}) =>{
     return (
         <View style={styles.CardContainer}>
             <View style={{flexDirection:"row"}}>
-                <Text style={styles.CardTitle}>Ruffy</Text>
+                <ImageButton imageUrl={ ruffy } imgStyle={styles.profile} btnStyle={styles.iconBtn}/>
+                <Text style={styles.CardTitle}>{id}</Text>
                 <TouchableOpacity> 
-                <Ionicons name="ellipsis-horizontal" size={18} style={{height:50,textAlignVertical:"center",}}/>
+                <Ionicons name="ellipsis-horizontal" size={18} style={{height:50,textAlignVertical:"center",marginRight:10}}/>
                 </TouchableOpacity>
             </View>
             <Image source={ruffy} style={{width:"100%", height: 200, borderRadius: 4}}/>
             <View style={{flexDirection:"row",justifyContent:'space-between',padding:5}}>
-                <View style={{flexDirection:"row"}}>
+                <View style={{flexDirection:"row", marginLeft:5}}>
                     <TouchableOpacity> 
                         <Ionicons name="heart-outline" size={20}/>
                     </TouchableOpacity>
@@ -28,13 +30,13 @@ const Feeds  = () =>{
                     </TouchableOpacity>
                 </View>
                 <TouchableOpacity> 
-                <Ionicons name="bookmark-outline" size={18}/>
+                <Ionicons name="bookmark-outline" size={18} style={{marginRight:5}}/>
                 </TouchableOpacity>
             </View>
-            <View>
-                <Text>좋아요 50개</Text>
+            <View style={{marginLeft:10}}>
+                <Text>좋아요 {like}개</Text>
                 <View style={{flexDirection:"row"}}>
-                    <Text style={styles.userid}>Ruffy</Text>
+                    <Text style={styles.userid}>{id}</Text>
                     <Text style={styles.CardContent}>안녕하세요 루피에요</Text>
                 </View>
             </View>
@@ -54,7 +56,8 @@ const styles = StyleSheet.create({
         flex:1,
         height:50,
         textAlignVertical:"center",
-        marginLeft:10
+        marginLeft:10,
+        fontWeight:"bold",
     },
     userid: {
         fontSize: 15,
@@ -66,5 +69,12 @@ const styles = StyleSheet.create({
     },  
     icon:{
         marginLeft:12
+    },
+    profile:{
+        width:40,
+        height:40,
+        borderRadius:100,
+        marginLeft:10,
+        marginTop:5
     }
 });
